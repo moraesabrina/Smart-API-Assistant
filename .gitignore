@@ -13,3 +13,23 @@ venv/
 # Arquivos do sistema
 .DS_Store
 Thumbs.db
+
+
+# Chaves e variáveis de ambiente
+.env
+.env.*
+
+# Ambiente virtual
+.venv/
+venv/
+
+# Arquivos temporários do Python
+__pycache__/
+*.pyc
+
+# Cache dos testes
+.pytest_cache/
+
+# Configurações locais
+.vscode/
+

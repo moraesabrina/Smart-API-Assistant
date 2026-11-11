@@ -1,4 +1,5 @@
 from erros_http import erros_http
+from assistente_ia import perguntar_ia
 
 def apresentar_assistente():
     print("================================")
@@ -21,19 +22,38 @@ def consultar_erro(codigo):
         print("Código ainda não cadastrado no assistente.")
 
 
+
 def iniciar_consultas():
     while True:
-        print("\n--- CONSULTA DE ERROS HTTP ---")
-        print("Digite 'sair' para encerrar.")
+        print("\n===== MENU PRINCIPAL =====")
+        print("1 - Consultar erro HTTP")
+        print("2 - Perguntar para a IA")
+        print("3 - Sair")
 
-        codigo = input("Digite um código HTTP: ").strip().lower()
+        opcao = input("\nEscolha uma opção: ").strip()
 
-        if codigo == "sair":
+        if opcao == "1":
+            codigo = input("Digite um código HTTP: ").strip()
+            consultar_erro(codigo)
+
+        elif opcao == "2":
+            pergunta = input("Digite sua pergunta para a IA: ").strip()
+
+            if pergunta:
+                print("\nConsultando a inteligência artificial...")
+                resposta = perguntar_ia(pergunta)
+                print(f"\nResposta da IA:\n{resposta}")
+            else:
+                print("Digite uma pergunta válida.")
+
+        elif opcao == "3":
             print("Obrigado por utilizar o Smart API Assistant!")
             break
 
-        consultar_erro(codigo)
+        else:
+            print("Opção inválida. Tente novamente.")
 
 
-apresentar_assistente()
-iniciar_consultas()
+if __name__ == "__main__":
+    apresentar_assistente()
+    iniciar_consultas()
