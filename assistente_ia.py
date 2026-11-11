@@ -6,16 +6,25 @@ from google.genai import types
 
 # Carrega as variáveis do arquivo .env
 
+
 load_dotenv()
 
-chave_api = os.getenv("GEMINI_API_KEY")
-
-if not chave_api:
+def obter_chave_api():
     try:
         import streamlit as st
-        chave_api = st.secrets.get("GEMINI_API_KEY")
+        chave = st.secrets.get("GEMINI_API_KEY")
+
+        if chave:
+            return chave.strip()
+
     except (FileNotFoundError, KeyError):
-        chave_api = None
+        pass
+
+    return os.getenv("GEMINI_API_KEY")
+
+
+chave_api = obter_chave_api()
+
 
 
 def perguntar_ia(pergunta):
