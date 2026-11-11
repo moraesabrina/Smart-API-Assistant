@@ -6,7 +6,7 @@ Assistente inteligente desenvolvido em **Python**, com integração à API do **
 
 O Smart API Assistant é um projeto desenvolvido para facilitar a compreensão de erros HTTP e apoiar a investigação de problemas técnicos em APIs.
 
-A ideia surgiu a partir da minha experiência profissional com suporte técnico a desenvolvedores e clientes que utilizam APIs no setor financeiro.
+A ideia surgiu a partir da minha experiência profissional com suporte técnico a desenvolvedores e clientes que utilizam APIs co foco no sistema financeiro, como recebimento de PIX, emissão de boletos, gestão de pagamentos, conciliação, entre outros.
 
 O projeto combina consultas locais a códigos HTTP com inteligência artificial generativa, permitindo que o usuário obtenha explicações, possíveis causas de falhas e sugestões de investigação.
 

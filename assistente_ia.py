@@ -5,10 +5,17 @@ from google.genai import errors
 from google.genai import types
 
 # Carrega as variáveis do arquivo .env
+
 load_dotenv()
 
-# Obtém a chave de API
 chave_api = os.getenv("GEMINI_API_KEY")
+
+if not chave_api:
+    try:
+        import streamlit as st
+        chave_api = st.secrets.get("GEMINI_API_KEY")
+    except (FileNotFoundError, KeyError):
+        chave_api = None
 
 
 def perguntar_ia(pergunta):
@@ -53,6 +60,7 @@ def perguntar_ia(pergunta):
 
     
     except errors.APIError as erro:
+        print(f"Erro na API Gemini: {erro.code} - {erro.message}")
         if erro.code == 404:
             return "O modelo de IA solicitado não está disponível."
 
